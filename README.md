@@ -10,7 +10,7 @@ Internal — Ben, Kate, Dave, Grace, Amber. Distributed via email to `leadership
 
 ## Editorial focus
 
-**Sectors (priority order):** data centers, solar, wind, BESS, transmission, RTOs, other energy.
+**Sectors (priority order):** data centers, solar, wind, BESS, transmission, RTOs, other energy. A **renewables floor** guarantees every issue includes at least 2 solar/wind/BESS/transmission bullets in Radar and 2 in Frontlines.
 
 **Geography (23 states):** VA, WV, PA, MI, OH, NC, IN, IL, IA, WA, OR, NM, AZ, CA, CO, UT, GA, TN, TX, KS, NY, NJ, WY — plus national.
 

@@ -27,6 +27,15 @@ You are generating one issue of the **RenUSA Leadership Brief** — an internal 
 6. RTO/ISO moves (PJM, MISO, ERCOT, CAISO, SPP, NYISO, ISO-NE)
 7. Other energy
 
+**Renewables floor (non-negotiable):**
+Every issue — regardless of day shape — must include substantive coverage of solar, wind, BESS, and/or transmission developments. Minimums:
+- **"Also On Our Radar" / bullets:** at least 2 of the items must cover solar, wind, BESS, or transmission — not data centers. Project milestones (groundbreakings, COD, financing closes), interconnection queue moves, tariff/trade impacts, permitting wins or losses, storage deployments, transmission buildouts all count.
+- **"On the Frontlines":** at least 2 of the state bullets must cover solar, wind, BESS, or transmission projects — siting fights, commission rulings, utility procurement, RFPs, PPA announcements, construction starts.
+- **Monday "Must Read" and Wednesday "Deep Dive":** rotate sectors. Do not run data center deep dives in consecutive issues. If the last issue's Must Read / Deep Dive was data centers, this issue's must be solar, wind, BESS, or transmission.
+- **Friday "Plays of the Week":** include at least one play from a solar, wind, BESS, or transmission engagement — not only data center fights.
+
+Data center coverage is not being reduced. The brief is being *expanded* to ensure renewables and grid infrastructure get proportional attention alongside data centers. RenUSA's clients build solar, wind, storage, and transmission projects — the brief must reflect that.
+
 **Geography focus** (23 states — surface these first, then national):
 VA, WV, PA, MI, OH, NC, IN, IL, IA, WA, OR, NM, AZ, CA, CO, UT, GA, TN, TX, KS, NY, NJ, WY.
 
@@ -53,13 +62,19 @@ Notable community-engagement *tactics* from anywhere in the industry — peer fi
 
 ## Sourcing
 
-Use web search heavily. Run 6–10 parallel queries covering:
+Use web search heavily. Run **10–16 parallel queries** covering:
 - Each priority sector for the past 3–5 days
 - Each priority state for opposition/permitting actions
 - For Friday issues only: the four named peer firms + any notable comms / engagement plays
 - Latest RTO/ISO activity (briefly)
+- **Dedicated renewables queries (run every issue):**
+  - "utility-scale solar project" + recent news (groundbreakings, COD, PPA, procurement, interconnection)
+  - "wind energy project" OR "offshore wind" + recent news (permits, construction, financing, opposition)
+  - "battery energy storage" OR "BESS project" + recent news (deployments, commissioning, financing)
+  - "transmission line" OR "grid infrastructure" + recent news (construction, FERC, interconnection queue, new builds)
+  - Solar/wind/BESS/transmission + each priority state (rotate states across issues to ensure coverage)
 
-Prefer: local newspapers, Utility Dive, Canary Media, E&E News, Inside Climate News, RTO Insider, S&P Global, Heatmap, Latitude Media, Virginia Mercury, Spotlight PA, Bridge Michigan, NC Newsline, Indiana Capital Chronicle, Capitol News Illinois, Source NM, CalMatters, Oregon Capital Chronicle, Texas Tribune, Iowa Capital Dispatch, NJ Spotlight News, NY Focus, Ohio Capital Journal, Kansas Reflector, Arizona Mirror, Tennessee Lookout, WyoFile.
+Prefer: local newspapers, Utility Dive, Canary Media, E&E News, Inside Climate News, RTO Insider, S&P Global, Heatmap, Latitude Media, pv magazine, Energy-Storage.News, Windpower Monthly, Electrek, Greentech Media, Solar Power World, POWER Magazine, T&D World, Virginia Mercury, Spotlight PA, Bridge Michigan, NC Newsline, Indiana Capital Chronicle, Capitol News Illinois, Source NM, CalMatters, Oregon Capital Chronicle, Texas Tribune, Iowa Capital Dispatch, NJ Spotlight News, NY Focus, Ohio Capital Journal, Kansas Reflector, Arizona Mirror, Tennessee Lookout, WyoFile.
 
 **Never fabricate.** Every claim, headline, town name, and statistic must trace to a real, current URL.
 
