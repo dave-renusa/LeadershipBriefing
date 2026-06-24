@@ -18,23 +18,24 @@ You are generating one issue of the **RenUSA Leadership Brief** — an internal 
 
 ## Editorial filters (priority order — non-negotiable)
 
-**Sectors, ranked:**
-1. Data centers (siting, opposition, water/power demand)
-2. Solar (utility-scale especially)
-3. Wind (onshore + offshore)
-4. BESS / battery storage
-5. Transmission / interconnection
-6. RTO/ISO moves (PJM, MISO, ERCOT, CAISO, SPP, NYISO, ISO-NE)
+**Sectors, ranked (renewables-first):**
+1. Solar (utility-scale especially)
+2. Wind (onshore + offshore)
+3. BESS / battery storage
+4. Transmission / interconnection
+5. RTO/ISO moves (PJM, MISO, ERCOT, CAISO, SPP, NYISO, ISO-NE)
+6. Data centers — covered as a *grid/energy-demand* story (load, power, cost, interconnection), not as the default headline
 7. Other energy
 
-**Renewables floor (non-negotiable):**
-Every issue — regardless of day shape — must include substantive coverage of solar, wind, BESS, and/or transmission developments. Minimums:
-- **"Also On Our Radar" / bullets:** at least 2 of the items must cover solar, wind, BESS, or transmission — not data centers. Project milestones (groundbreakings, COD, financing closes), interconnection queue moves, tariff/trade impacts, permitting wins or losses, storage deployments, transmission buildouts all count.
-- **"On the Frontlines":** at least 2 of the state bullets must cover solar, wind, BESS, or transmission projects — siting fights, commission rulings, utility procurement, RFPs, PPA announcements, construction starts.
-- **Monday "Must Read" and Wednesday "Deep Dive":** rotate sectors. Do not run data center deep dives in consecutive issues. If the last issue's Must Read / Deep Dive was data centers, this issue's must be solar, wind, BESS, or transmission.
-- **Friday "Plays of the Week":** include at least one play from a solar, wind, BESS, or transmission engagement — not only data center fights.
+**Renewables-first mandate (non-negotiable):**
+This is a renewables brief. Solar, wind, BESS, and transmission are the main event; data centers are a supporting storyline — relevant for the load, cost, and grid pressure they put on the projects our clients build, not for siting drama on their own. Minimums every issue, regardless of day shape:
+- **"Must Read" / "Deep Dive":** defaults to a renewables sector (solar, wind, BESS, or transmission). A data-center lead is allowed only when the core of the story is the energy/grid/cost angle, and **no more than roughly one issue in four** — never in consecutive issues. When in doubt, lead with renewables.
+- **"On the Frontlines":** **more than half** the state bullets must cover solar, wind, BESS, or transmission — siting fights, commission rulings, utility procurement, RFPs, PPA announcements, construction starts, interconnection moves.
+- **"Also On Our Radar" / bullets:** **at least half**, and never fewer than 2, must cover solar, wind, BESS, or transmission. Project milestones (groundbreakings, COD, financing closes), queue moves, tariff/trade impacts, permitting wins or losses, storage deployments, transmission buildouts all count.
+- **Friday "Plays of the Week":** at least **two** plays from solar, wind, BESS, or transmission engagements.
+- **Data-center cap:** data-center items should not outnumber renewables items in any section. If a section is trending data-center-heavy, cut or consolidate the DC bullets, not the renewables ones.
 
-Data center coverage is not being reduced. The brief is being *expanded* to ensure renewables and grid infrastructure get proportional attention alongside data centers. RenUSA's clients build solar, wind, storage, and transmission projects — the brief must reflect that.
+RenUSA's clients build solar, wind, storage, and transmission. The brief must read like it — renewables in the lead, data centers as context.
 
 **Geography focus** (23 states — surface these first, then national):
 VA, WV, PA, MI, OH, NC, IN, IL, IA, WA, OR, NM, AZ, CA, CO, UT, GA, TN, TX, KS, NY, NJ, WY.
