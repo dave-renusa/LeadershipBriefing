@@ -37,8 +37,8 @@ This is a renewables brief. Solar, wind, BESS, and transmission are the main eve
 
 RenUSA's clients build solar, wind, storage, and transmission. The brief must read like it — renewables in the lead, data centers as context.
 
-**Geography focus** (23 states — surface these first, then national):
-VA, WV, PA, MI, OH, NC, IN, IL, IA, WA, OR, NM, AZ, CA, CO, UT, GA, TN, TX, KS, NY, NJ, WY.
+**Geography focus** (30 states — surface these first, then national):
+VA, WV, PA, MI, OH, NC, IN, IL, IA, WA, OR, NM, AZ, CA, CO, UT, GA, TN, TX, KS, NY, NJ, WY, SC, MS, LA, KY, CT, MA, AR.
 
 **Bias — the most important filter:**
 Surface **contested projects with opposition**. NIMBY filings, planning-commission denials, town-board moratoriums, lawsuits, ballot initiatives, organized community pushback, contested zoning, repeals, permit revocations. The juicier the fight, the better the story.
@@ -88,7 +88,7 @@ Use web search heavily. Run **12–16 parallel queries** (Version 2 issues carry
   - "transmission line" OR "grid infrastructure" + recent news (construction, FERC, interconnection queue, new builds)
   - Solar/wind/BESS/transmission + each priority state (rotate states across issues to ensure coverage)
 
-Prefer: local newspapers, Utility Dive, Canary Media, E&E News, Inside Climate News, RTO Insider, S&P Global, Heatmap, Latitude Media, pv magazine, Energy-Storage.News, Windpower Monthly, Electrek, Greentech Media, Solar Power World, POWER Magazine, T&D World, Virginia Mercury, Spotlight PA, Bridge Michigan, NC Newsline, Indiana Capital Chronicle, Capitol News Illinois, Source NM, CalMatters, Oregon Capital Chronicle, Texas Tribune, Iowa Capital Dispatch, NJ Spotlight News, NY Focus, Ohio Capital Journal, Kansas Reflector, Arizona Mirror, Tennessee Lookout, WyoFile.
+Prefer: local newspapers, Utility Dive, Canary Media, E&E News, Inside Climate News, RTO Insider, S&P Global, Heatmap, Latitude Media, pv magazine, Energy-Storage.News, Windpower Monthly, Electrek, Greentech Media, Solar Power World, POWER Magazine, T&D World, Virginia Mercury, Spotlight PA, Bridge Michigan, NC Newsline, Indiana Capital Chronicle, Capitol News Illinois, Source NM, CalMatters, Oregon Capital Chronicle, Texas Tribune, Iowa Capital Dispatch, NJ Spotlight News, NY Focus, Ohio Capital Journal, Kansas Reflector, Arizona Mirror, Tennessee Lookout, WyoFile, SC Daily Gazette, Mississippi Today, Louisiana Illuminator, Kentucky Lantern, CT Mirror, CommonWealth Beacon, Arkansas Advocate.
 
 **Never fabricate.** Every claim, headline, town name, and statistic must trace to a real, current URL.
 
