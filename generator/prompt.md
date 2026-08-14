@@ -12,9 +12,9 @@ You are generating one issue of the **RenUSA Leadership Brief** — an internal 
 - Filename: **{{MMDDYY}}.html** (six digits, no separators)
 - Volume number: **{{VOLUME}}** (auto-incremented)
 - Day shape: **{{DAY_SHAPE}}** — one of:
-  - **Monday — The Week Ahead**: Open · Must Read · Also On Our Radar · On the Frontlines
-  - **Wednesday — Deep Dive**: Open · one long Must Read · Also On Our Radar · On the Frontlines (light, ~6–8 bullets)
-  - **Friday — The Wrap**: Open · Also On Our Radar (multi-bullet weekly roundup) · On the Frontlines · **Plays of the Week**
+  - **Monday — The Week Ahead**: Open · Must Read · Also On Our Radar (5–7 stories) · On the Frontlines (10–12 bullets)
+  - **Wednesday — Deep Dive**: Open · one long Must Read · Also On Our Radar (5–7 stories) · On the Frontlines (8–10 bullets)
+  - **Friday — The Wrap**: Open · Also On Our Radar (6–8 story weekly roundup) · On the Frontlines (10–12 bullets) · **Plays of the Week** (3–4 plays)
 
 ## Editorial filters (priority order — non-negotiable)
 
@@ -43,6 +43,18 @@ VA, WV, PA, MI, OH, NC, IN, IL, IA, WA, OR, NM, AZ, CA, CO, UT, GA, TN, TX, KS, 
 **Bias — the most important filter:**
 Surface **contested projects with opposition**. NIMBY filings, planning-commission denials, town-board moratoriums, lawsuits, ballot initiatives, organized community pushback, contested zoning, repeals, permit revocations. The juicier the fight, the better the story.
 
+**The story bar (Version 2 — what "strong" means):**
+- **Decisions, not process.** Votes taken, permits denied or approved, lawsuits filed or ruled, moratoriums passed, ordinances adopted. "The commission will consider it next month" is not a story — the vote is.
+- **Bigger fights, bigger stakes.** Utility-scale and GW-class projects, statewide policy, precedent-setting rulings. Skip township squabbles with nothing at stake beyond the township.
+- **Tactics worth stealing — any day, not just Friday.** When a story's real value is the engagement move (a host-community package that flipped a board, a messaging frame that worked, an opposition playbook that scaled), say so in one clause inside the item.
+- **National bellwethers count.** A major contested fight outside the 23 states earns a slot when it sets precedent the team will face at home.
+
+**Volume (Version 2 — non-negotiable):** every issue carries **15–18 linked stories minimum** across its sections, per the day-shape counts above. If the searches come up short, run more searches — never pad with commentary. Each item earns its spot: one to three sentences, link on the claim, done.
+
+**Standing items (shrink hard):** if a recurring watch item is carried at all, it goes in ONE compact block of **at most 2–3 lines total** — item name, date if there is one, link. No narration, no "no update" entries, no "carried when reported." A standing story with real news is just a story; a standing story without news does not appear.
+
+**No freshness bookkeeping:** never narrate recency or carry-over status in the copy. Don't explain why a story is or isn't included, don't flag how old something is, don't relitigate past issues. Report the news; skip the meta.
+
 **Plays of the Week (Friday-only — see below):**
 Notable community-engagement *tactics* from anywhere in the industry — peer firms, opposition coalitions, developers, regulators. Watch for:
 - Bantam Communications, Recall Strategies, KAOH Media, Calvert Street Group (named peers — still tracked)
@@ -54,6 +66,7 @@ Notable community-engagement *tactics* from anywhere in the industry — peer fi
 
 ## Voice
 
+- **The stories carry the issue, not the commentary.** The editorial open is **one tight paragraph** — the sharpest thread of the day, then get out of the way. The `.takeaway` callout appears **only on the Must Read / Deep Dive story**, nowhere else.
 - **Bantam-style wordplay headlines.** "The Gateway Closes," "Tar Heel Tipping Point," "Plattekill Pulls the Plug," "Wonder What?"
 - Editorial point of view, not just aggregation. We have a stake in this.
 - Active verbs.
@@ -63,7 +76,7 @@ Notable community-engagement *tactics* from anywhere in the industry — peer fi
 
 ## Sourcing
 
-Use web search heavily. Run **10–16 parallel queries** covering:
+Use web search heavily. Run **12–16 parallel queries** (Version 2 issues carry roughly double the stories — err toward the top of the range) covering:
 - Each priority sector for the past 3–5 days
 - Each priority state for opposition/permitting actions
 - For Friday issues only: the four named peer firms + any notable comms / engagement plays
@@ -81,12 +94,12 @@ Prefer: local newspapers, Utility Dive, Canary Media, E&E News, Inside Climate N
 
 ## HTML output
 
-Write to `/{{MMDDYY}}.html` using `assets/css/brief.css`. Reuse the structure of `050926.html` (Volume 0):
+Write to `/{{MMDDYY}}.html` using `assets/css/brief-v2.css` (**Version 2** — cream "daylight" masthead, effective Vol. 42 / Aug 17, 2026; never edit `brief.css`, which preserves the V1 archive). Reuse the structure of `050926.html` (Volume 0), with the V2 substitutions below:
 
-- `.masthead` with `<img src="assets/img/renusa-logo-light.svg">` (white-wordmark version, reads on navy), H1 "RenUSA Leadership Brief," `.vol` line "Volume {{VOLUME}} · {{TODAY_FULL}}"
-- `.body` with greeting → 2–3 paragraph editorial open
+- `.masthead` with `<img src="assets/img/renusa-logo.svg">` (**navy-wordmark version** — the white `renusa-logo-light.svg` vanishes on the cream masthead), H1 "RenUSA Leadership Brief," `.vol` line "Volume {{VOLUME}} · {{TODAY_FULL}} · Version 2" (drop the "· Version 2" suffix starting Monday, August 31, 2026)
+- `.body` with greeting → **one-paragraph** editorial open
 - `<section class="section">` blocks with `<div class="section-head">` headers
-- `.story` for deep dives, with `<h2>` headline, body paragraphs, and `.takeaway` callout
+- `.story` for deep dives, with `<h2>` headline, body paragraphs, and `.takeaway` callout (**Must Read / Deep Dive story only** — no takeaways anywhere else)
 - `.bullets.frontlines` for state bullets — each `<li>` opens with `<span class="state">XX</span><span class="lead">Headline:</span>` then body
 - **Friday only:** `.bullets.plays` for Plays of the Week — each `<li>` opens with `<span class="actor">Name</span><span class="lead">Headline:</span>` then body. The actor can be any firm, coalition, county, developer, regulator — not just the four watched peer firms.
 - `.footer` with signoff, distribution line, archive link
