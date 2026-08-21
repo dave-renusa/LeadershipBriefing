@@ -37,8 +37,8 @@ This is a renewables brief. Solar, wind, BESS, and transmission are the main eve
 
 RenUSA's clients build solar, wind, storage, and transmission. The brief must read like it — renewables in the lead, data centers as context.
 
-**Geography focus** (33 states — surface these first, then national):
-VA, WV, PA, MI, OH, NC, IN, IL, IA, WA, OR, NM, AZ, CA, CO, UT, GA, TN, TX, KS, NY, NJ, WY, SC, MS, LA, KY, CT, MA, AR, WI, NV, ID.
+**Geography focus** (30 states — surface these first, then national):
+VA, WV, PA, MI, OH, NC, IN, IL, IA, WA, OR, NM, AZ, CA, CO, UT, GA, TN, TX, KS, NY, NJ, WY, SC, MS, LA, KY, CT, MA, AR.
 
 **Bias — the most important filter:**
 Surface **contested projects with opposition**. NIMBY filings, planning-commission denials, town-board moratoriums, lawsuits, ballot initiatives, organized community pushback, contested zoning, repeals, permit revocations. The juicier the fight, the better the story.
@@ -47,8 +47,8 @@ Surface **contested projects with opposition**. NIMBY filings, planning-commissi
 - **Decisions, not process.** Votes taken, permits denied or approved, lawsuits filed or ruled, moratoriums passed, ordinances adopted. "The commission will consider it next month" is not a story — the vote is.
 - **Bigger fights, bigger stakes.** Utility-scale and GW-class projects, statewide policy, precedent-setting rulings. Skip township squabbles with nothing at stake beyond the township.
 - **Tactics worth stealing — any day, not just Friday.** When a story's real value is the engagement move (a host-community package that flipped a board, a messaging frame that worked, an opposition playbook that scaled), say so in one clause inside the item.
-- **National bellwethers count.** A major contested fight outside the 33 states earns a slot when it sets precedent the team will face at home.
-- **A named client project always clears the bar.** The scheduled task carries a private watchlist of RenUSA's own projects and their counties. Any credible news naming one of them — a hearing, a vote, a filing, a protest, an ordinance — earns a slot regardless of the size rules above, and leads the relevant section. These are the stories the team is accountable for.
+- **National bellwethers count.** A major contested fight outside the 30 states earns a slot when it sets precedent the team will face at home.
+- **A named client project always clears the bar.** The scheduled task carries a private watchlist of RenUSA's own projects, their counties, and the counties bordering them. Any credible news naming one of them — a hearing, a vote, a filing, a protest, an ordinance — earns a slot regardless of the size rules above, and leads the relevant section. An action in a bordering county counts too: the ordinance language and the organizers travel. Report only what a source says happened; never characterize a project's posture or phase. If nothing broke, the project simply does not appear — never a placeholder line.
 
 **Volume (Version 2 — non-negotiable):** every issue carries **15–18 linked stories minimum** across its sections, per the day-shape counts above. If the searches come up short, run more searches — never pad with commentary. Each item earns its spot: one to three sentences, link on the claim, done.
 
@@ -89,7 +89,7 @@ Use web search heavily. Run **12–16 parallel queries** (Version 2 issues carry
   - "transmission line" OR "grid infrastructure" + recent news (construction, FERC, interconnection queue, new builds)
   - Solar/wind/BESS/transmission + each priority state (rotate states across issues to ensure coverage)
 
-Prefer: local newspapers, Utility Dive, Canary Media, E&E News, Inside Climate News, RTO Insider, S&P Global, Heatmap, Latitude Media, pv magazine, Energy-Storage.News, Windpower Monthly, Electrek, Greentech Media, Solar Power World, POWER Magazine, T&D World, Virginia Mercury, Spotlight PA, Bridge Michigan, NC Newsline, Indiana Capital Chronicle, Capitol News Illinois, Source NM, CalMatters, Oregon Capital Chronicle, Texas Tribune, Iowa Capital Dispatch, NJ Spotlight News, NY Focus, Ohio Capital Journal, Kansas Reflector, Arizona Mirror, Tennessee Lookout, WyoFile, SC Daily Gazette, Mississippi Today, Louisiana Illuminator, Kentucky Lantern, CT Mirror, CommonWealth Beacon, Arkansas Advocate, Wisconsin Examiner, Wisconsin Watch, Nevada Current, Idaho Capital Sun.
+Prefer: local newspapers, Utility Dive, Canary Media, E&E News, Inside Climate News, RTO Insider, S&P Global, Heatmap, Latitude Media, pv magazine, Energy-Storage.News, Windpower Monthly, Electrek, Greentech Media, Solar Power World, POWER Magazine, T&D World, Virginia Mercury, Spotlight PA, Bridge Michigan, NC Newsline, Indiana Capital Chronicle, Capitol News Illinois, Source NM, CalMatters, Oregon Capital Chronicle, Texas Tribune, Iowa Capital Dispatch, NJ Spotlight News, NY Focus, Ohio Capital Journal, Kansas Reflector, Arizona Mirror, Tennessee Lookout, WyoFile, SC Daily Gazette, Mississippi Today, Louisiana Illuminator, Kentucky Lantern, CT Mirror, CommonWealth Beacon, Arkansas Advocate.
 
 **Never fabricate.** Every claim, headline, town name, and statistic must trace to a real, current URL.
 
