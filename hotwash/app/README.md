@@ -1,4 +1,4 @@
-# Hot Wash (Vercel + Supabase) — work in progress
+# Hot Wash (Vercel + Supabase): work in progress
 
 Paused scaffold. It was started for the original six-column kanban design and has not been
 updated for the three-part hot wash page in `../prototype/hotwash.html`, which is now the spec.
