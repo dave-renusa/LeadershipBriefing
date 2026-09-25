@@ -96,6 +96,19 @@
   h2 { font-family: var(--font-display); font-size: clamp(2rem, 4.4vw, 3rem); line-height: 1.06; letter-spacing: -0.03em; font-weight: 700; margin: 0; text-wrap: balance; }
   .part-head p { margin: 0; color: var(--ink-2); font-size: 1.08rem; text-wrap: pretty; }
 
+  /* Campaign timeline */
+  .outcome { margin: 18px 0 0; font-size: 1.02rem; color: var(--ink-2); max-width: 60ch; }
+  .outcome b { color: var(--ink); font-weight: 600; }
+  .phases { list-style: none; margin: 0 0 40px; padding: 0; display: grid; grid-template-columns: 1.3fr 2fr 1fr 1fr 1fr; gap: 0; background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-lg); overflow: hidden; }
+  .phase { padding: 18px 18px 20px; display: flex; flex-direction: column; gap: 6px; position: relative; }
+  .phase + .phase { border-left: 1px solid var(--line); }
+  .phase .when { font-size: 0.76rem; font-weight: 600; color: var(--ink-3); }
+  .phase h4 { margin: 0; font-size: 1rem; letter-spacing: -0.015em; }
+  .phase p { margin: 0; font-size: 0.88rem; color: var(--ink-2); }
+  .phase.lead { background: var(--accent-soft); }
+  .phase.end h4 { color: var(--pass); }
+  .phase .bar-note { font-size: 0.76rem; font-weight: 600; color: var(--accent); }
+
   /* Part 1: explainer */
   .explain { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: 28px; align-items: start; }
   .groups { display: flex; flex-direction: column; gap: 22px; }
@@ -236,6 +249,8 @@
   footer { padding-block: 40px 56px; border-top: 1px solid var(--line); font-size: 0.8rem; color: var(--ink-3); }
 
   @media (max-width: 900px) {
+    .phases { grid-template-columns: 1fr; }
+    .phase + .phase { border-left: 0; border-top: 1px solid var(--line); }
     .explain { grid-template-columns: 1fr; }
     .detail { position: static; order: -1; padding: 22px; }
     .reads, .themes { grid-template-columns: 1fr; }
@@ -279,6 +294,7 @@
   <p class="eyebrow" id="heroDate">Staff hot wash · October 5, 2026</p>
   <h1>1500 Gateway. <span class="soft">Well run. Not enough.</span></h1>
   <p class="lede" id="lede">Five of us scored fifteen campaign components from 1 to 5, on how well we ran each one and how much it mattered to the outcome.</p>
+  <p class="outcome" id="outcome" hidden></p>
   <div class="agenda">
     <a href="#ran" class="press"><span class="k">Part 1</span><span class="t">What we ran</span><span class="d">Fifteen components, and what we wrote about each.</span></a>
     <a href="#scored" class="press"><span class="k">Part 2</span><span class="t">How we scored it</span><span class="d">Execution against impact, and where we agree.</span></a>
@@ -294,6 +310,7 @@
       <h2>What we ran</h2>
       <p>Pick a component to see all five scores and what the team wrote about it. Anyone can fill in the line describing what we actually ran.</p>
     </div>
+    <ol class="phases" id="phases" aria-label="Campaign timeline"></ol>
     <div class="explain">
       <div class="groups" id="groups"></div>
       <article class="detail" id="detail" aria-live="polite"></article>
@@ -406,6 +423,12 @@
     lede.append(`${words[S.survey.respondents || 5] || S.survey.respondents} of us scored ${t.length} campaign components from 1 to 5, on how well we ran each one and how much it mattered to the outcome. `,
       h('b', { text: `On ${below} of the ${t.length}, we rated impact below execution.` }));
     if (S.board?.date) $('#heroDate').textContent = `Staff hot wash · ${S.board.date}`;
+    const c = S.board?.campaign;
+    if (c?.outcome) { const o = $('#outcome'); o.hidden = false; o.textContent = ''; o.append(h('b', { text: c.outcome_short + ' ' }), c.outcome); }
+    const ph = $('#phases'); ph.textContent = '';
+    for (const x of c?.phases || []) ph.append(h('li', { class: 'phase' + (x.style ? ' ' + x.style : '') },
+      h('span', { class: 'when', text: x.when }), h('h4', { text: x.title }), h('p', { text: x.text }), x.note ? h('span', { class: 'bar-note', text: x.note }) : null));
+    ph.hidden = !(c?.phases || []).length;
   }
 
   // ---------- Part 1: explainer ----------
@@ -636,6 +659,8 @@
     await resolveNames();
     const L = [`# ${S.board?.title || '1500 Gateway Hot Wash'}`, '', `Notes exported ${new Date().toLocaleString()}`, ''];
     L.push('## Part 1. What we ran', '');
+    const camp = S.board?.campaign;
+    if (camp) { for (const x of camp.phases || []) L.push(`- **${x.title}** (${x.when}): ${x.text}`); L.push('', `${camp.outcome_short} ${camp.outcome}`, ''); }
     for (const g of S.survey?.groups || []) {
       L.push(`### ${g}`, '');
       for (const t of tactics().filter(x => x.group === g)) {

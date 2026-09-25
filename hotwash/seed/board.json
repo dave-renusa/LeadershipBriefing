@@ -3,7 +3,41 @@
   "id": "hotwash-2026-10-05",
   "title": "1500 Gateway Hot Wash",
   "date": "October 5, 2026",
-  "framing": "The council's question changed. Our tools didn't. Old tools proved supporters exist. The live question is whether a yes vote survives the next election. Every tool gets one test: does it give a swing member cover to vote yes?"
+  "framing": "The council's question changed. Our tools didn't. Old tools proved supporters exist. The live question is whether a yes vote survives the next election. Every tool gets one test: does it give a swing member cover to vote yes?",
+  "campaign": {
+   "outcome_short": "The City Council voted it down 7-0.",
+   "outcome": "By our read, the vote turned more on the technology overlay district than on the project itself.",
+   "phases": [
+    {
+     "when": "About 4 months",
+     "title": "Support role",
+     "text": "Business outreach, union engagement and education, with other consultants in front."
+    },
+    {
+     "when": "3 months",
+     "title": "Intensive campaign, RenUSA leading",
+     "style": "lead",
+     "text": "PLA and union mobilization, patch-through calls, two rounds of mail to all of Fredericksburg, an extensive letters-to-the-editor and media campaign.",
+     "note": "RenUSA and the developer in front; other consultants took a back seat, perhaps too far back."
+    },
+    {
+     "when": "May",
+     "title": "City Council meeting",
+     "text": "About 50 union supporters showed up out of nowhere, and 20 of them spoke."
+    },
+    {
+     "when": "Public hearing",
+     "title": "Hearing night",
+     "text": "We matched the May turnout, backed by patch-through calls that didn't do much."
+    },
+    {
+     "when": "Vote",
+     "title": "Denied 7-0",
+     "style": "end",
+     "text": "The technology overlay district drove the vote more than the project did."
+    }
+   ]
+  }
  },
  "tools": [
   {
