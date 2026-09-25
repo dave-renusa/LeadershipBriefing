@@ -1,0 +1,159 @@
+{
+ "board": {
+  "id": "hotwash-2026-10-05",
+  "title": "1500 Gateway Hot Wash",
+  "date": "October 5, 2026",
+  "framing": "The council's question changed. Our tools didn't. Old tools proved supporters exist. The live question is whether a yes vote survives the next election. Every tool gets one test: does it give a swing member cover to vote yes?"
+ },
+ "tools": [
+  {
+   "id": "t1",
+   "n": 1,
+   "kind": "Modified",
+   "status": "Not yet debated",
+   "title": "Council interviews and a whip count, from day one",
+   "replaces": "Council member engagement",
+   "one_liner": "Sit down with every member early and ask what would let them vote yes. Keep a whip count with no rounding.",
+   "evidence": "Council engagement scored 2.4 on impact. Three of five of us said earlier, harder, more direct council engagement was the decision most likely to change the outcome.",
+   "how": [
+    "Interview each member before the application is public: what would let you vote yes, and what would it cost you?",
+    "Find the three persuadable members and run a separate track for each.",
+    "Whip count updated weekly. Leaners count as undecided, never as yes.",
+    "Feed what members ask for into the conditions the client offers."
+   ],
+   "breaks": "Reads as lobbying if the client is in the room. Needs a local door-opener where RenUSA has no relationships.",
+   "ord": 1000,
+   "owner": ""
+  },
+  {
+   "id": "t2",
+   "n": 2,
+   "kind": "New",
+   "status": "Agreed: build first",
+   "title": "Project-level community task force",
+   "replaces": "Public events and community meetings",
+   "one_liner": "A county-appointed group that turns \"no\" into \"yes if\" over six fixed weeks.",
+   "evidence": "One of us said the thing never to repeat was skipping the real community engagement phase. Public events was one of only two components we rated higher on impact than execution.",
+   "how": [
+    "9 to 11 published seats: residents drawn at random from the impact radius (with stipend), board appointees, a seat offered to the opposition, school, fire or sheriff.",
+    "Independent facilitator and technical reviewer paid through escrow. RenUSA keeps minutes, never chairs.",
+    "Client publishes a day-one letter: what it adopts automatically, what is off the table, and that it will accept a no-go finding.",
+    "Output is a standards document the client proffers as conditions, presented by the task force chair."
+   ],
+   "breaks": "Developer-convened reads as captured. Self-selected seats fill with the Facebook group. No day-one letter makes it theater. Open-ended timelines become a stall.",
+   "ord": 2000,
+   "owner": ""
+  },
+  {
+   "id": "t3",
+   "n": 3,
+   "kind": "Replaces patch-through",
+   "status": "Agreed: build first",
+   "title": "Telephone town halls",
+   "replaces": "Patch-through calls",
+   "one_liner": "Pull residents onto a live call with the county's engineer instead of pushing calls at the council.",
+   "evidence": "Patch-through calls scored lowest of all 15 on both execution (1.8) and impact (1.4). Opponents called them robocalls and used them as a talking point.",
+   "how": [
+    "Dial the impact radius onto a live call. County engineer and a task force resident lead; the client speaks two minutes at most.",
+    "Keypad polls (support with conditions, oppose, undecided) produce hundreds of coded households, which rebuilds supporter ID.",
+    "Council members can join and get the results.",
+    "Monthly through the process. Low five figures per call."
+   ],
+   "breaks": "Opponents tell people not to pick up. A developer on the line still sounds like a developer.",
+   "ord": 3000,
+   "owner": ""
+  },
+  {
+   "id": "t4",
+   "n": 4,
+   "kind": "Modified",
+   "status": "Not yet debated",
+   "title": "Mail as an invitation, not a reply card",
+   "replaces": "Direct mail and reply cards",
+   "one_liner": "A hand-addressed invitation from the project lead with a personal cell number and a task force application.",
+   "evidence": "Direct mail had the second-biggest gap between execution and impact (3.4 vs 1.8). A council member posted our reply postcard online with her objections, and one of us could not recall any cards coming back.",
+   "how": [
+    "Hand-addressed, signed by a named project lead, with a cell number that person answers.",
+    "Invites residents to a specific meeting date.",
+    "Replaces the reply card with a task force application.",
+    "Sent to the impact radius only. No volume drops."
+   ],
+   "breaks": "Still mail from the applicant. Only works if the meeting and the task force are real.",
+   "ord": 4000,
+   "owner": ""
+  },
+  {
+   "id": "t5",
+   "n": 5,
+   "kind": "Modified",
+   "status": "Agreed",
+   "title": "Institutions that ask, not just support",
+   "replaces": "Schools outreach and coalition building",
+   "one_liner": "The superintendent and sheriff at the podium with a number and a cut list from their own budgets.",
+   "evidence": "Schools and education outreach scored 2.6 on impact, and we split widely on how well it went (execution ranged from 5 to 1).",
+   "how": [
+    "Signed benefit agreement with escrowed line items before anyone speaks.",
+    "Each institution names the dollar figure and what it funds, drawn from its own budget documents.",
+    "Economic development stays in the background: supporting projects is its job, so it persuades no one."
+   ],
+   "breaks": "If the projection comes in at half, the school board becomes the next opponent. Some boards fear looking bought.",
+   "ord": 5000,
+   "owner": ""
+  },
+  {
+   "id": "t6",
+   "n": 6,
+   "kind": "New",
+   "status": "Agreed",
+   "title": "Post-vote defense",
+   "replaces": "Nothing: nobody sells this today",
+   "one_liner": "A two-year retainer from vote day that makes the yes vote look good through the next election.",
+   "evidence": "Not tested on 1500 Gateway. It answers the question behind every council vote: if I vote yes, do I keep my seat?",
+   "how": [
+    "Quarterly compliance report to the board from the county's monitor.",
+    "First-year benefits report with the finance director's line items before the next budget cycle.",
+    "Named complaint response within a day, logged and reported.",
+    "Written into the conditions as a monitoring and reporting obligation."
+   ],
+   "breaks": "Post-approval spend when the client's budget line already reads \"done.\"",
+   "ord": 6000,
+   "owner": ""
+  },
+  {
+   "id": "t7",
+   "n": 7,
+   "kind": "Modified",
+   "status": "Agreed, with limits",
+   "title": "Polling that sizes the room",
+   "replaces": "Support polling",
+   "one_liner": "Measure salience and conditional support, and show how small the loud room is next to the district.",
+   "evidence": "Three of five of us pointed to council engagement as the deciding factor. Polling gives members a number to stand on other than the hearing room.",
+   "how": [
+    "Named local pollster, public methodology, crosstabs by district. Let the county pick or co-fund the pollster.",
+    "Measure salience against taxes, roads and schools; conditional support; the by-right alternative.",
+    "Ask whether respondents attended a meeting or posted online, to size the room against the district.",
+    "Never ask \"do you support a data center.\" It loses everywhere."
+   ],
+   "breaks": "Applicant-paid polling reads as advocacy. A tool for cover, not a silver bullet.",
+   "ord": 7000,
+   "owner": ""
+  }
+ ],
+ "parked": [
+  "Survivals record (contested votes tracked to the next election)",
+  "State benchmark matrix",
+  "Peer-to-peer texting",
+  "Paid and deep canvass",
+  "Geofenced digital to an ID page",
+  "Short video answers to the viral claim",
+  "Opposition mapping",
+  "Running public FAQ with receipts"
+ ],
+ "retired": [
+  "Patch-through calls",
+  "Reply-card persuasion mail",
+  "Relational organizing apps",
+  "Property value guarantees and studies",
+  "Pre-vote persuasion ads"
+ ]
+}

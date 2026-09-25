@@ -1,0 +1,578 @@
+{
+ "project": "1500 Gateway",
+ "title": "1500 Gateway team survey",
+ "respondents": 5,
+ "groups": [
+  "Relationships",
+  "Media and message",
+  "Paid and volume contact",
+  "In the room"
+ ],
+ "tactics": [
+  {
+   "tactic": "Council member engagement",
+   "exec_avg": 3.2,
+   "exec_hi": 4.0,
+   "exec_lo": 2.0,
+   "exec_n": 5,
+   "impact_avg": 2.4,
+   "impact_hi": 4.0,
+   "impact_lo": 1.0,
+   "impact_n": 5,
+   "exec": [
+    2.0,
+    4.0,
+    4.0,
+    3.0,
+    3.0
+   ],
+   "impact": [
+    1.0,
+    4.0,
+    2.0,
+    4.0,
+    1.0
+   ],
+   "group": "Relationships",
+   "comments": [
+    {
+     "kind": "decision",
+     "text": "Meeting with the City Council directly."
+    },
+    {
+     "kind": "decision",
+     "text": "Hindsight is 20/20, but I firmly believe more aggressive engagement at an earlier juncture in the project would have tipped the scales at least in our favor. Jumping in to the project as late as I did and still seeing others (outside of the RenUSA team) standing behind a slow pace, not really wanting to ruffle too many feathers was a bit shocking. I understand that there were other factors like local advocates not wanting to damage their reps, but that's the point of what we're working together for, to see results."
+    },
+    {
+     "kind": "decision",
+     "text": "A harder political campaign run at the TOD and earlier, poured into all communications components of the campaign - lobbying, community engagement, messaging, etc."
+    }
+   ],
+   "next_tool": "t1"
+  },
+  {
+   "tactic": "Coalition building",
+   "exec_avg": 3.4,
+   "exec_hi": 4.0,
+   "exec_lo": 2.0,
+   "exec_n": 5,
+   "impact_avg": 3.6,
+   "impact_hi": 5.0,
+   "impact_lo": 2.0,
+   "impact_n": 5,
+   "exec": [
+    4.0,
+    4.0,
+    4.0,
+    3.0,
+    2.0
+   ],
+   "impact": [
+    4.0,
+    5.0,
+    3.0,
+    4.0,
+    2.0
+   ],
+   "group": "Relationships",
+   "comments": [
+    {
+     "kind": "replicate",
+     "text": "The coalition we built and supported."
+    }
+   ],
+   "next_tool": "t5"
+  },
+  {
+   "tactic": "Labor and PLA",
+   "exec_avg": 4.8,
+   "exec_hi": 5.0,
+   "exec_lo": 4.0,
+   "exec_n": 5,
+   "impact_avg": 4.4,
+   "impact_hi": 5.0,
+   "impact_lo": 3.0,
+   "impact_n": 5,
+   "exec": [
+    5.0,
+    5.0,
+    5.0,
+    4.0,
+    5.0
+   ],
+   "impact": [
+    5.0,
+    5.0,
+    5.0,
+    3.0,
+    4.0
+   ],
+   "group": "Relationships",
+   "comments": [
+    {
+     "kind": "replicate",
+     "text": "From what I saw, the Labor engagement in general. I know this is already a strong point we utilize in nearly every project, but at multiple phases, I was wowed by the turnout and engagement from our union allies. Even in a losing battle, the impact was intense and the follow-up utility (the LTE's, written comments, media quotes) were fantastic."
+    },
+    {
+     "kind": "replicate",
+     "text": "Union outreach"
+    }
+   ]
+  },
+  {
+   "tactic": "Earned media, local",
+   "exec_avg": 4.2,
+   "exec_hi": 5.0,
+   "exec_lo": 3.0,
+   "exec_n": 5,
+   "impact_avg": 3.4,
+   "impact_hi": 4.0,
+   "impact_lo": 2.0,
+   "impact_n": 5,
+   "exec": [
+    5.0,
+    3.0,
+    4.0,
+    4.0,
+    5.0
+   ],
+   "impact": [
+    4.0,
+    4.0,
+    4.0,
+    2.0,
+    3.0
+   ],
+   "group": "Media and message",
+   "comments": []
+  },
+  {
+   "tactic": "Earned media, national and trade",
+   "exec_avg": 3.8,
+   "exec_hi": 5.0,
+   "exec_lo": 3.0,
+   "exec_n": 5,
+   "impact_avg": 2.0,
+   "impact_hi": 4.0,
+   "impact_lo": 1.0,
+   "impact_n": 5,
+   "exec": [
+    3.0,
+    5.0,
+    4.0,
+    3.0,
+    4.0
+   ],
+   "impact": [
+    2.0,
+    4.0,
+    2.0,
+    1.0,
+    1.0
+   ],
+   "group": "Media and message",
+   "comments": []
+  },
+  {
+   "tactic": "Paid digital ads",
+   "exec_avg": 3.2,
+   "exec_hi": 5.0,
+   "exec_lo": 1.0,
+   "exec_n": 5,
+   "impact_avg": 2.0,
+   "impact_hi": 3.0,
+   "impact_lo": 1.0,
+   "impact_n": 5,
+   "exec": [
+    5.0,
+    2.0,
+    4.0,
+    1.0,
+    4.0
+   ],
+   "impact": [
+    1.0,
+    3.0,
+    2.0,
+    2.0,
+    2.0
+   ],
+   "group": "Paid and volume contact",
+   "comments": []
+  },
+  {
+   "tactic": "Patch-through calls",
+   "exec_avg": 1.8,
+   "exec_hi": 3.0,
+   "exec_lo": 1.0,
+   "exec_n": 5,
+   "impact_avg": 1.4,
+   "impact_hi": 3.0,
+   "impact_lo": 1.0,
+   "impact_n": 5,
+   "exec": [
+    2.0,
+    2.0,
+    3.0,
+    1.0,
+    1.0
+   ],
+   "impact": [
+    1.0,
+    1.0,
+    3.0,
+    1.0,
+    1.0
+   ],
+   "group": "Paid and volume contact",
+   "comments": [
+    {
+     "kind": "never",
+     "text": "Patch through calls."
+    },
+    {
+     "kind": "never",
+     "text": "Patch calls. Having difficulty with this one."
+    },
+    {
+     "kind": "decision",
+     "text": "Sending mailers that allowed responses and not doing the patch-thru phone calls would have made the biggest differences here. Not because the tactics are bad but I don't think that we anticipated the hostility both of those actions would receive. Having the councilwoman post her negative comments to our postcard and post them online along with her and others saying that the calls were robotic-calls added addition fire to the flame/talking points for opposition."
+    }
+   ],
+   "next_tool": "t3"
+  },
+  {
+   "tactic": "Direct mail and newspaper ads",
+   "exec_avg": 3.4,
+   "exec_hi": 4.0,
+   "exec_lo": 3.0,
+   "exec_n": 5,
+   "impact_avg": 1.8,
+   "impact_hi": 3.0,
+   "impact_lo": 1.0,
+   "impact_n": 5,
+   "exec": [
+    4.0,
+    3.0,
+    4.0,
+    3.0,
+    3.0
+   ],
+   "impact": [
+    1.0,
+    2.0,
+    3.0,
+    2.0,
+    1.0
+   ],
+   "group": "Paid and volume contact",
+   "comments": [
+    {
+     "kind": "decision",
+     "text": "Sending mailers that allowed responses and not doing the patch-thru phone calls would have made the biggest differences here. Not because the tactics are bad but I don't think that we anticipated the hostility both of those actions would receive. Having the councilwoman post her negative comments to our postcard and post them online along with her and others saying that the calls were robotic-calls added addition fire to the flame/talking points for opposition."
+    },
+    {
+     "kind": "never",
+     "text": "I'm hesitant to say this, but I'm not sure in a similar case to this, the reply mail. I don't remember if anything got mailed in at all. Different cases and factors, mail away. But I'm just not sure about it in similar situations."
+    }
+   ],
+   "next_tool": "t4"
+  },
+  {
+   "tactic": "Digital advocacy",
+   "exec_avg": 3.0,
+   "exec_hi": 4.0,
+   "exec_lo": 2.0,
+   "exec_n": 4,
+   "impact_avg": 2.0,
+   "impact_hi": 3.0,
+   "impact_lo": 1.0,
+   "impact_n": 4,
+   "exec": [
+    3.0,
+    4.0,
+    3.0,
+    2.0
+   ],
+   "impact": [
+    1.0,
+    3.0,
+    3.0,
+    1.0
+   ],
+   "group": "Paid and volume contact",
+   "comments": [
+    {
+     "kind": "replicate",
+     "text": "The build your own personalized letter/comment prior to the hearing and the flodesk emails as community and stakeholder outreach. I think the letter/comment builder should be used at every landowners dinner and pre hearing event"
+    }
+   ]
+  },
+  {
+   "tactic": "Public events",
+   "exec_avg": 3.4,
+   "exec_hi": 5.0,
+   "exec_lo": 2.0,
+   "exec_n": 5,
+   "impact_avg": 3.6,
+   "impact_hi": 4.0,
+   "impact_lo": 3.0,
+   "impact_n": 5,
+   "exec": [
+    4.0,
+    3.0,
+    5.0,
+    2.0,
+    3.0
+   ],
+   "impact": [
+    3.0,
+    4.0,
+    4.0,
+    4.0,
+    3.0
+   ],
+   "group": "In the room",
+   "comments": [
+    {
+     "kind": "decision",
+     "text": "Public information session; door-to-door outreach."
+    },
+    {
+     "kind": "never",
+     "text": "Skip the real community engagement phase (client dependent), not do community meetings"
+    }
+   ],
+   "next_tool": "t2"
+  },
+  {
+   "tactic": "Hearing night",
+   "exec_avg": 4.4,
+   "exec_hi": 5.0,
+   "exec_lo": 3.0,
+   "exec_n": 5,
+   "impact_avg": 3.6,
+   "impact_hi": 5.0,
+   "impact_lo": 3.0,
+   "impact_n": 5,
+   "exec": [
+    5.0,
+    5.0,
+    5.0,
+    3.0,
+    4.0
+   ],
+   "impact": [
+    4.0,
+    3.0,
+    5.0,
+    3.0,
+    3.0
+   ],
+   "group": "In the room",
+   "comments": []
+  },
+  {
+   "tactic": "Schools and education outreach",
+   "exec_avg": 2.8,
+   "exec_hi": 5.0,
+   "exec_lo": 1.0,
+   "exec_n": 5,
+   "impact_avg": 2.6,
+   "impact_hi": 4.0,
+   "impact_lo": 1.0,
+   "impact_n": 5,
+   "exec": [
+    2.0,
+    3.0,
+    5.0,
+    3.0,
+    1.0
+   ],
+   "impact": [
+    2.0,
+    3.0,
+    4.0,
+    3.0,
+    1.0
+   ],
+   "group": "Relationships",
+   "comments": [],
+   "next_tool": "t5"
+  },
+  {
+   "tactic": "Opposition research and rapid response",
+   "exec_avg": 4.0,
+   "exec_hi": 5.0,
+   "exec_lo": 3.0,
+   "exec_n": 5,
+   "impact_avg": 3.6,
+   "impact_hi": 5.0,
+   "impact_lo": 3.0,
+   "impact_n": 5,
+   "exec": [
+    4.0,
+    5.0,
+    5.0,
+    3.0,
+    3.0
+   ],
+   "impact": [
+    3.0,
+    4.0,
+    5.0,
+    3.0,
+    3.0
+   ],
+   "group": "Media and message",
+   "comments": []
+  },
+  {
+   "tactic": "Messaging and materials",
+   "exec_avg": 4.6,
+   "exec_hi": 5.0,
+   "exec_lo": 4.0,
+   "exec_n": 5,
+   "impact_avg": 3.8,
+   "impact_hi": 5.0,
+   "impact_lo": 2.0,
+   "impact_n": 5,
+   "exec": [
+    5.0,
+    4.0,
+    5.0,
+    4.0,
+    5.0
+   ],
+   "impact": [
+    5.0,
+    4.0,
+    4.0,
+    2.0,
+    4.0
+   ],
+   "group": "Media and message",
+   "comments": []
+  },
+  {
+   "tactic": "Client counsel",
+   "exec_avg": 4.2,
+   "exec_hi": 5.0,
+   "exec_lo": 4.0,
+   "exec_n": 5,
+   "impact_avg": 4.2,
+   "impact_hi": 5.0,
+   "impact_lo": 3.0,
+   "impact_n": 5,
+   "exec": [
+    5.0,
+    4.0,
+    4.0,
+    4.0,
+    4.0
+   ],
+   "impact": [
+    5.0,
+    5.0,
+    3.0,
+    3.0,
+    5.0
+   ],
+   "group": "Relationships",
+   "comments": [
+    {
+     "kind": "replicate",
+     "text": "Constant campaign comms, frequent client engagement, working through conflict with the client, speed of approvals, being advisors v. order takers"
+    }
+   ]
+  }
+ ],
+ "responses": [
+  {
+   "replicate": "The coalition we built and supported.",
+   "never": "Patch through calls.",
+   "decision": "Meeting with the City Council directly."
+  },
+  {
+   "replicate": "The build your own personalized letter/comment prior to the hearing and the flodesk emails as community and stakeholder outreach. I think the letter/comment builder should be used at every landowners dinner and pre hearing event",
+   "never": null,
+   "decision": "Sending mailers that allowed responses and not doing the patch-thru phone calls would have made the biggest differences here. Not because the tactics are bad but I don't think that we anticipated the hostility both of those actions would receive. Having the councilwoman post her negative comments to our postcard and post them online along with her and others saying that the calls were robotic-calls added addition fire to the flame/talking points for opposition."
+  },
+  {
+   "replicate": "From what I saw, the Labor engagement in general. I know this is already a strong point we utilize in nearly every project, but at multiple phases, I was wowed by the turnout and engagement from our union allies. Even in a losing battle, the impact was intense and the follow-up utility (the LTE's, written comments, media quotes) were fantastic.",
+   "never": "I'm hesitant to say this, but I'm not sure in a similar case to this, the reply mail. I don't remember if anything got mailed in at all. Different cases and factors, mail away. But I'm just not sure about it in similar situations.",
+   "decision": "Hindsight is 20/20, but I firmly believe more aggressive engagement at an earlier juncture in the project would have tipped the scales at least in our favor. Jumping in to the project as late as I did and still seeing others (outside of the RenUSA team) standing behind a slow pace, not really wanting to ruffle too many feathers was a bit shocking. I understand that there were other factors like local advocates not wanting to damage their reps, but that's the point of what we're working together for, to see results."
+  },
+  {
+   "replicate": "Constant campaign comms, frequent client engagement, working through conflict with the client, speed of approvals, being advisors v. order takers",
+   "never": "Skip the real community engagement phase (client dependent), not do community meetings",
+   "decision": "A harder political campaign run at the TOD and earlier, poured into all communications components of the campaign - lobbying, community engagement, messaging, etc."
+  },
+  {
+   "replicate": "Union outreach",
+   "never": "Patch calls. Having difficulty with this one.",
+   "decision": "Public information session; door-to-door outreach."
+  }
+ ],
+ "themes": [
+  {
+   "question": "One thing we must replicate",
+   "answered": 5,
+   "items": [
+    [
+     "Labor and union allies",
+     2
+    ],
+    [
+     "The coalition we built",
+     1
+    ],
+    [
+     "Letter and comment builder, plus email outreach",
+     1
+    ],
+    [
+     "Constant client counsel and campaign comms",
+     1
+    ]
+   ]
+  },
+  {
+   "question": "One thing we should never do again",
+   "answered": 4,
+   "items": [
+    [
+     "Patch-through calls",
+     2
+    ],
+    [
+     "Reply mail",
+     1
+    ],
+    [
+     "Skipping the real community engagement phase",
+     1
+    ]
+   ]
+  },
+  {
+   "question": "The decision most likely to change the outcome",
+   "answered": 5,
+   "items": [
+    [
+     "Earlier, harder, more direct council engagement",
+     3
+    ],
+    [
+     "Not sending reply mail or running patch calls",
+     1
+    ],
+    [
+     "A public information session and door-to-door",
+     1
+    ]
+   ]
+  }
+ ],
+ "coding_note": "Themes coded by Claude from the written answers. Counts are answers, not people weighted by role."
+}
