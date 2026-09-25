@@ -96,6 +96,12 @@
   h2 { font-family: var(--font-display); font-size: clamp(2rem, 4.4vw, 3rem); line-height: 1.06; letter-spacing: -0.03em; font-weight: 700; margin: 0; text-wrap: balance; }
   .part-head p { margin: 0; color: var(--ink-2); font-size: 1.08rem; text-wrap: pretty; }
 
+  /* Narrative */
+  .story { max-width: 680px; margin: 0 0 36px; display: flex; flex-direction: column; gap: 14px; }
+  .story p { margin: 0; font-size: 1.12rem; line-height: 1.55; letter-spacing: -0.016em; color: var(--ink); text-wrap: pretty; }
+  .story .by { font-size: 0.82rem; color: var(--ink-3); font-weight: 500; }
+  .pick { margin: 0 0 16px; color: var(--ink-2); font-size: 0.98rem; }
+
   /* Campaign timeline */
   .outcome { margin: 18px 0 0; font-size: 1.02rem; color: var(--ink-2); max-width: 60ch; }
   .outcome b { color: var(--ink); font-weight: 600; }
@@ -308,9 +314,10 @@
     <div class="part-head">
       <p class="eyebrow">Part 1</p>
       <h2>What we ran</h2>
-      <p>Pick a component to see all five scores and what the team wrote about it. Anyone can fill in the line describing what we actually ran.</p>
     </div>
+    <div class="story" id="story"></div>
     <ol class="phases" id="phases" aria-label="Campaign timeline"></ol>
+    <p class="pick">Pick a component to see all five scores and what the team wrote about it.</p>
     <div class="explain">
       <div class="groups" id="groups"></div>
       <article class="detail" id="detail" aria-live="polite"></article>
@@ -425,6 +432,9 @@
     if (S.board?.date) $('#heroDate').textContent = `Staff hot wash · ${S.board.date}`;
     const c = S.board?.campaign;
     if (c?.outcome) { const o = $('#outcome'); o.hidden = false; o.textContent = ''; o.append(h('b', { text: c.outcome_short + ' ' }), c.outcome); }
+    const st = $('#story'); st.textContent = '';
+    if (c?.narrative?.length) { st.append(...c.narrative.map(t => h('p', { text: t })), c.narrative_by ? h('span', { class: 'by', text: c.narrative_by }) : ''); }
+    st.hidden = !c?.narrative?.length;
     const ph = $('#phases'); ph.textContent = '';
     for (const x of c?.phases || []) ph.append(h('li', { class: 'phase' + (x.style ? ' ' + x.style : '') },
       h('span', { class: 'when', text: x.when }), h('h4', { text: x.title }), h('p', { text: x.text }), x.note ? h('span', { class: 'bar-note', text: x.note }) : null));
@@ -660,7 +670,7 @@
     const L = [`# ${S.board?.title || '1500 Gateway Hot Wash'}`, '', `Notes exported ${new Date().toLocaleString()}`, ''];
     L.push('## Part 1. What we ran', '');
     const camp = S.board?.campaign;
-    if (camp) { for (const x of camp.phases || []) L.push(`- **${x.title}** (${x.when}): ${x.text}`); L.push('', `${camp.outcome_short} ${camp.outcome}`, ''); }
+    if (camp) { for (const para of camp.narrative || []) L.push(para, ''); for (const x of camp.phases || []) L.push(`- **${x.title}** (${x.when}): ${x.text}`); L.push('', `${camp.outcome_short} ${camp.outcome}`, ''); }
     for (const g of S.survey?.groups || []) {
       L.push(`### ${g}`, '');
       for (const t of tactics().filter(x => x.group === g)) {
