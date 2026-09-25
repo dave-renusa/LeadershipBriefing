@@ -121,19 +121,24 @@
   .group h3 { font-size: 0.78rem; font-weight: 600; color: var(--ink-3); margin: 0 0 6px 12px; letter-spacing: 0; }
   .group ul { list-style: none; margin: 0; padding: 0; background: var(--surface); border-radius: var(--r-md); border: 1px solid var(--line); overflow: hidden; }
   .group li + li { border-top: 1px solid var(--line); }
-  .comp { width: 100%; background: none; border: 0; display: grid; grid-template-columns: minmax(0, 1fr) 84px 34px; gap: 12px; align-items: center; padding: 11px 14px; text-align: left; font-size: 0.95rem; }
+  .comp { width: 100%; background: none; border: 0; display: grid; grid-template-columns: minmax(0, 1fr) 84px 44px 44px; gap: 10px; align-items: center; padding: 11px 14px; text-align: left; font-size: 0.95rem; }
   .comp:hover { background: var(--surface-2); }
   .comp[aria-pressed="true"] { background: var(--accent-soft); }
   .comp[aria-pressed="true"] .comp-name { font-weight: 600; }
   .mini { height: 4px; border-radius: 2px; background: color-mix(in srgb, var(--ink) 9%, transparent); position: relative; overflow: hidden; }
   .mini i { position: absolute; left: 0; top: 0; bottom: 0; background: var(--impact); border-radius: 2px; }
-  .comp-num { font-size: 0.85rem; font-variant-numeric: tabular-nums; color: var(--ink-2); text-align: right; }
+  .mini i.ex { background: color-mix(in srgb, var(--exec) 55%, transparent); }
+  .comp-num { font-size: 0.92rem; font-variant-numeric: tabular-nums; color: var(--ink-2); text-align: right; }
+  .comp-num.imp { color: var(--ink); font-weight: 600; }
+  .cols-head { display: grid; grid-template-columns: minmax(0, 1fr) 84px 44px 44px; gap: 10px; padding: 0 14px; font-size: 0.78rem; font-weight: 600; color: var(--ink-3); margin-bottom: -6px; }
+  .cols-head span { text-align: right; }
+  .cols-head .ci { color: var(--impact); }
 
   .detail { position: sticky; top: 76px; background: var(--surface); border-radius: var(--r-lg); border: 1px solid var(--line); padding: 28px; display: flex; flex-direction: column; gap: 22px; }
   .detail .dgroup { font-size: 0.8rem; font-weight: 600; color: var(--ink-3); }
   .detail h3 { font-family: var(--font-display); font-size: 1.9rem; line-height: 1.1; letter-spacing: -0.025em; margin: 2px 0 0; }
   .what label { font-size: 0.8rem; font-weight: 600; color: var(--ink-3); display: block; margin-bottom: 6px; }
-  .what textarea { width: 100%; resize: vertical; min-height: 56px; border: 1px solid var(--line); background: var(--surface-2); border-radius: 10px; padding: 10px 12px; font-size: 0.95rem; line-height: 1.45; }
+  .what textarea { width: 100%; resize: none; overflow: hidden; min-height: 56px; border: 1px solid var(--line); background: var(--surface-2); border-radius: 10px; padding: 10px 12px; font-size: 0.95rem; line-height: 1.45; }
   .what textarea:focus { outline: none; border-color: var(--link); background: var(--surface); }
   .what .saved { font-size: 0.78rem; color: var(--try); margin-left: 8px; }
   .meters { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
@@ -449,13 +454,15 @@
   // ---------- Part 1: explainer ----------
   function renderGroups() {
     const wrap = $('#groups'); wrap.textContent = '';
+    wrap.append(h('div', { class: 'cols-head', 'aria-hidden': 'true' }, h('span', { style: 'text-align:left', text: 'Sorted by impact' }), h('span', {}), h('span', { text: 'Exec' }), h('span', { class: 'ci', text: 'Impact' })));
     for (const g of S.survey?.groups || []) {
       const items = tactics().filter(t => t.group === g).sort((a, b) => b.impact_avg - a.impact_avg);
       wrap.append(h('div', { class: 'group' }, h('h3', { text: g }),
         h('ul', {}, items.map(t => h('li', {}, h('button', { class: 'comp', type: 'button', 'aria-pressed': String(S.sel === t.tactic), onclick: () => select(t.tactic, true) },
           h('span', { class: 'comp-name', text: t.tactic }),
-          h('span', { class: 'mini', title: `Impact ${f1(t.impact_avg)} of 5` }, h('i', { style: `width:${(t.impact_avg / 5) * 100}%` })),
-          h('span', { class: 'comp-num', text: f1(t.impact_avg) })))))));
+          h('span', { class: 'mini', title: `Execution ${f1(t.exec_avg)}, impact ${f1(t.impact_avg)} of 5` }, h('i', { class: 'ex', style: `width:${(t.exec_avg / 5) * 100}%` }), h('i', { style: `width:${(t.impact_avg / 5) * 100}%` })),
+          h('span', { class: 'comp-num', title: 'Execution', text: f1(t.exec_avg) }),
+          h('span', { class: 'comp-num imp', title: 'Impact', text: f1(t.impact_avg) })))))));
     }
   }
   function select(name, scroll) {
@@ -487,6 +494,8 @@
     const comp = S.comps.get(slug(t.tactic));
     const ta = h('textarea', { id: 'what', rows: '2', placeholder: S.canWrite === false ? 'Not filled in yet.' : 'One or two lines: what did we actually run?', disabled: S.canWrite === false, onblur: saveWhat });
     ta.value = comp?.what || '';
+    const fit = () => { ta.style.height = 'auto'; ta.style.height = ta.scrollHeight + 2 + 'px'; };
+    ta.addEventListener('input', fit); requestAnimationFrame(fit);
     const next = t.next_tool && S.tools.get(t.next_tool);
     d.textContent = '';
     d.append(
