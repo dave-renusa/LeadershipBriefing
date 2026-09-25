@@ -220,6 +220,11 @@
   .vbtns [data-v="unsure"][aria-pressed="true"] { background: var(--work-soft); border-color: var(--work); color: var(--work); }
   .vbtns [data-v="kill"][aria-pressed="true"] { background: var(--pass-soft); border-color: var(--pass); color: var(--pass); }
   .vbtns button:disabled { cursor: not-allowed; opacity: 0.55; }
+  .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; }
+  .step { display: flex; gap: 4px; justify-content: center; }
+  .step button { flex: 1; border: 1px solid var(--line); background: var(--surface-2); color: var(--ink-2); border-radius: 8px; height: 28px; font-size: 1rem; line-height: 1; font-weight: 500; }
+  .step button:hover:not(:disabled) { border-color: var(--line-strong); color: var(--ink); }
+  .step button:disabled { opacity: 0.35; cursor: not-allowed; }
   .split { display: flex; height: 4px; border-radius: 2px; overflow: hidden; background: color-mix(in srgb, var(--ink) 8%, transparent); gap: 2px; }
   .split i:nth-child(1) { background: var(--try); } .split i:nth-child(2) { background: var(--work); } .split i:nth-child(3) { background: var(--pass); }
   .vfoot { display: flex; justify-content: space-between; font-size: 0.78rem; color: var(--ink-3); }
@@ -378,7 +383,7 @@
   const QKIND = { replicate: 'Must replicate', never: 'Never again', decision: 'What would have changed the outcome' };
 
   const S = { board: null, survey: null, tools: new Map(), votes: new Map(), comments: new Map(), comps: new Map(),
-    me: { id: null, anon: false }, names: {}, canWrite: true, sel: null, open: new Set(), connected: false };
+    me: { id: null, anon: false }, isEditor: false, pendingRoom: {}, names: {}, canWrite: true, sel: null, open: new Set(), connected: false };
   let db = null, user = null, downloads = null;
 
   const $ = (s, el = document) => el.querySelector(s);
@@ -568,6 +573,11 @@
   function tally(id) {
     const t = { keep: 0, unsure: 0, kill: 0, mine: null, voters: [] };
     for (const v of S.votes.values()) if (v.card_id === id && v.vote in t) { t[v.vote]++; t.voters.push(v); if (v.user_id === S.me.id) t.mine = v.vote; }
+    // Facilitator adjustments made in the room sit on top of online votes.
+    const room = S.pendingRoom[id] || S.tools.get(id)?.room || {};
+    t.online = { keep: t.keep, unsure: t.unsure, kill: t.kill };
+    t.adjusted = false;
+    for (const k of ['keep', 'unsure', 'kill']) { const a = room[k] || 0; if (a) t.adjusted = true; t[k] = Math.max(0, t[k] + a); }
     return t;
   }
   const commentsFor = id => [...S.comments.values()].filter(c => c.card_id === id).sort((a, b) => (a.ts || '').localeCompare(b.ts || ''));
@@ -604,8 +614,11 @@
         h('div', { class: 'vote' },
           h('div', { class: 'vbtns', role: 'group', 'aria-label': 'Your vote' }, VOTES.map(o => h('button', { class: 'press', type: 'button', 'data-v': o.v, 'aria-pressed': String(ta.mine === o.v), disabled: ro, onclick: () => vote(t.id, o.v) },
             h('span', { class: 'c', text: String(ta[o.v]) }), o.label))),
+          S.isEditor ? h('div', { class: 'steps', role: 'group', 'aria-label': 'Adjust room count' }, VOTES.map(o => h('div', { class: 'step' },
+            h('button', { class: 'press', type: 'button', 'aria-label': `One fewer ${o.label}`, disabled: ta[o.v] === 0, onclick: () => adjust(t.id, o.v, -1), text: '−' }),
+            h('button', { class: 'press', type: 'button', 'aria-label': `One more ${o.label}`, onclick: () => adjust(t.id, o.v, 1), text: '+' })))) : null,
           h('div', { class: 'split', 'aria-hidden': 'true' }, total ? VOTES.map(o => h('i', { style: `flex:${ta[o.v]}` })) : null),
-          h('div', { class: 'vfoot' }, h('span', { text: total ? `${total} vote${total > 1 ? 's' : ''}` : 'No votes yet' }), h('span', { text: t.owner ? `Owner: ${t.owner}` : 'No owner' })))),
+          h('div', { class: 'vfoot' }, h('span', { text: (total ? `${total} vote${total > 1 ? 's' : ''}` : 'No votes yet') + (ta.adjusted ? ' · includes room count' : '') }), h('span', { text: t.owner ? `Owner: ${t.owner}` : 'No owner' })))),
       h('div', { class: 'drawer', id: 'dr-' + t.id }, h('div', {}, h('div', { class: 'drawer-in' },
         h('div', {}, h('h4', { text: 'How it works' }), h('ul', {}, (t.how || []).map(x => h('li', { text: x })))),
         h('div', { style: 'display:flex;flex-direction:column;gap:20px' },
@@ -647,6 +660,24 @@
     renderTools();
     try { clearing ? await db.doc('votes/' + vid).delete() : await db.doc('votes/' + vid).set(S.votes.get(vid)); }
     catch (e) { prev ? S.votes.set(vid, prev) : S.votes.delete(vid); renderTools(); writeFailed(e); }
+  }
+  const roomTimers = {};
+  function adjust(id, v, d) {
+    const t = S.tools.get(id); if (!t || !db) return;
+    const room = { keep: 0, unsure: 0, kill: 0, ...(S.pendingRoom[id] || t.room || {}) };
+    const online = tally(id).online[v];
+    if (online + room[v] + d < 0) return;
+    room[v] += d;
+    S.pendingRoom[id] = room;
+    renderTools();
+    clearTimeout(roomTimers[id]);
+    roomTimers[id] = setTimeout(async () => {
+      const toWrite = S.pendingRoom[id];
+      try { await db.doc('tools/' + id).update({ room: toWrite }); S.tools.set(id, { ...S.tools.get(id), room: toWrite }); }
+      catch (e) { writeFailed(e); }
+      if (S.pendingRoom[id] === toWrite) delete S.pendingRoom[id];
+      renderTools();
+    }, 400);
   }
   async function saveOwner(id, val) {
     const t = S.tools.get(id); if (!t || !db) return;
@@ -734,6 +765,7 @@
     if (user) {
       const [id, can] = await Promise.all([user.id(), user.can('data.write')]);
       S.me.id = id; S.canWrite = can; if (can === false) readOnly();
+      S.isEditor = await user.canEdit();
     }
     if (!S.me.id) { let id = lsGet('hw.anon'); if (!id) { id = 'anon-' + Math.random().toString(36).slice(2, 10); lsSet('hw.anon', id); } S.me = { id, anon: true }; }
     const live = () => { S.connected = true; renderAll(); };
