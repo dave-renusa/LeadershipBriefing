@@ -252,10 +252,6 @@
   .compose textarea { flex: 1; min-height: 42px; resize: vertical; border: 1px solid var(--line-strong); background: var(--surface-2); border-radius: 12px; padding: 9px 12px; font-size: 0.95rem; }
   .compose textarea:focus { outline: none; border-color: var(--link); background: var(--surface); }
   .voters { font-size: 0.82rem; color: var(--ink-2); }
-  .shelf { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 28px; }
-  .shelf div { padding: 18px 20px; border-radius: var(--r-md); border: 1px dashed var(--line-strong); }
-  .shelf h4 { margin: 0 0 6px; font-size: 0.9rem; }
-  .shelf p { margin: 0; font-size: 0.9rem; color: var(--ink-2); }
 
   .fb-form { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-lg); padding: 22px 24px; display: flex; flex-direction: column; gap: 16px; }
   .fb-form label { display: block; font-size: 0.8rem; font-weight: 600; color: var(--ink-3); margin-bottom: 6px; }
@@ -296,7 +292,6 @@
     .seg a { flex: 1; text-align: center; padding-inline: 6px; }
     .bar-title .org { display: none; }
     .meters { grid-template-columns: 1fr; }
-    .shelf { grid-template-columns: 1fr; }
     .hero { padding-block: 44px 36px; }
     section.part { padding-block: 44px; }
   }
@@ -382,7 +377,6 @@
     </div>
     <p class="test" id="framing"></p>
     <div class="tools" id="tools"></div>
-    <div class="shelf" id="shelf"></div>
   </div>
 </section>
 
@@ -638,9 +632,6 @@
     for (const t of toolList()) wrap.append(toolEl(t));
     for (const [id, v] of Object.entries(draft)) { const el = document.getElementById(id); if (el && (id.startsWith('c-') || id === focusId)) el.value = v; }
     if (focusId && document.getElementById(focusId)) { const el = document.getElementById(focusId); el.focus({ preventScroll: true }); if (caret != null && el.setSelectionRange) try { el.setSelectionRange(caret, caret); } catch {} }
-    const shelf = $('#shelf'); shelf.textContent = '';
-    if (S.board?.parked) shelf.append(h('div', {}, h('h4', { text: 'Parked for later' }), h('p', { text: S.board.parked.join(' · ') })));
-    if (S.board?.retired) shelf.append(h('div', {}, h('h4', { text: 'Retired' }), h('p', { text: S.board.retired.join(' · ') })));
     resolveNames();
   }
 
