@@ -257,6 +257,21 @@
   .shelf h4 { margin: 0 0 6px; font-size: 0.9rem; }
   .shelf p { margin: 0; font-size: 0.9rem; color: var(--ink-2); }
 
+  .fb-form { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-lg); padding: 22px 24px; display: flex; flex-direction: column; gap: 16px; }
+  .fb-form label { display: block; font-size: 0.8rem; font-weight: 600; color: var(--ink-3); margin-bottom: 6px; }
+  .fb-form input, .fb-form textarea { width: 100%; border: 1px solid var(--line-strong); background: var(--surface-2); border-radius: 10px; padding: 10px 12px; font-size: 0.98rem; }
+  .fb-form textarea { resize: vertical; min-height: 110px; line-height: 1.45; }
+  .fb-form input:focus, .fb-form textarea:focus { outline: none; border-color: var(--link); background: var(--surface); }
+  .fb-name { max-width: 360px; }
+  .fb-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .fb-actions { display: flex; justify-content: flex-end; align-items: center; gap: 14px; }
+  .fb-list { display: flex; flex-direction: column; gap: 12px; margin-top: 24px; }
+  .fb-item { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-md); padding: 16px 20px; display: grid; grid-template-columns: 180px 1fr 1fr; gap: 6px 20px; }
+  .fb-item .who { font-weight: 600; } .fb-item .when { font-size: 0.78rem; color: var(--ink-3); }
+  .fb-item h4 { margin: 0 0 4px; font-size: 0.76rem; font-weight: 600; }
+  .fb-item .pos h4 { color: var(--try); } .fb-item .neg h4 { color: var(--pass); }
+  .fb-item p { margin: 0; font-size: 0.95rem; white-space: pre-wrap; }
+  .fb-count { font-size: 0.9rem; color: var(--ink-2); margin: 24px 0 0; }
   .notice { background: var(--work-soft); color: var(--ink); border-radius: var(--r-md); padding: 12px 16px; font-size: 0.9rem; margin-top: 24px; }
   .toast { position: fixed; left: 50%; bottom: calc(24px + env(safe-area-inset-bottom, 0px)); transform: translateX(-50%); background: var(--ink); color: var(--bg); padding: 10px 18px; border-radius: 980px; font-size: 0.88rem; z-index: 30; max-width: calc(100% - 32px); }
   .modal-bg { position: fixed; inset: 0; background: var(--scrim); z-index: 20; }
@@ -275,6 +290,7 @@
     .drawer-in { padding-left: 24px; grid-template-columns: 1fr; }
   }
   @media (max-width: 640px) {
+    .fb-cols, .fb-item { grid-template-columns: 1fr; }
     .agenda { grid-template-columns: 1fr; }
     .seg { order: 3; margin-inline: 0; width: 100%; }
     .seg a { flex: 1; text-align: center; padding-inline: 6px; }
@@ -301,6 +317,7 @@
       <a href="#ran" data-sec="ran" aria-current="true">What we ran</a>
       <a href="#scored" data-sec="scored">How we scored it</a>
       <a href="#next" data-sec="next">What we try next</a>
+      <a href="#feedback" data-sec="feedback">Feedback</a>
     </div>
     <button class="btn quiet press" id="exportBtn" type="button">Export notes</button>
   </div>
@@ -369,6 +386,25 @@
   </div>
 </section>
 
+<section class="part" id="feedback">
+  <div class="wrap">
+    <div class="part-head">
+      <p class="eyebrow">Wrap-up</p>
+      <h2>Your feedback</h2>
+      <p>One positive and one negative from 1500 Gateway or from the hot wash. Be specific: what happened, and what it changed. Your name shows with your entry, and you can come back and edit it.</p>
+    </div>
+    <form class="fb-form" id="fbForm">
+      <div class="fb-name"><label for="fbName">Name</label><input id="fbName" autocomplete="name" placeholder="Your name"></div>
+      <div class="fb-cols">
+        <div><label for="fbPos">Positives: what worked</label><textarea id="fbPos" rows="4"></textarea></div>
+        <div><label for="fbNeg">Negatives: what didn't</label><textarea id="fbNeg" rows="4"></textarea></div>
+      </div>
+      <div class="fb-actions"><span class="muted" id="fbStatus"></span><button class="btn press" type="submit" id="fbSubmit">Submit feedback</button></div>
+    </form>
+    <div class="fb-list" id="fbList"></div>
+  </div>
+</section>
+
 <footer><div class="wrap">RenUSA East Team · Internal · Survey scores are staff self-assessment, five responses.</div></footer>
 
 <datalist id="team">
@@ -387,7 +423,7 @@
   const VLABEL = Object.fromEntries(VOTES.map(x => [x.v, x.label]));
   const QKIND = { replicate: 'Must replicate', never: 'Never again', decision: 'What would have changed the outcome' };
 
-  const S = { board: null, survey: null, tools: new Map(), votes: new Map(), comments: new Map(), comps: new Map(),
+  const S = { board: null, survey: null, tools: new Map(), votes: new Map(), comments: new Map(), comps: new Map(), feedback: new Map(), fbLoaded: false,
     me: { id: null, anon: false }, isEditor: false, pendingRoom: {}, names: {}, canWrite: true, sel: null, open: new Set(), connected: false };
   let db = null, user = null, downloads = null;
 
@@ -422,12 +458,13 @@
     const ids = new Set();
     for (const v of S.votes.values()) if (v.user_id?.startsWith('u_')) ids.add(v.user_id);
     for (const c of S.comments.values()) if (c.user_id?.startsWith('u_')) ids.add(c.user_id);
+    for (const f of S.feedback.values()) if (f.user_id?.startsWith('u_')) ids.add(f.user_id);
     if (S.me.id?.startsWith('u_')) ids.add(S.me.id);
     if (![...ids].some(id => !(id in S.names))) return;
     resolving = true;
     try { const ps = await user.profiles([...ids]); for (const id of ids) S.names[id] = ps[id]?.name || ''; }
     finally { resolving = false; }
-    renderTools();
+    renderTools(); renderFeedback();
   }
   const nameOf = (uid, fb) => (uid && S.names[uid]) || (uid === S.me.id ? 'You' : fb || 'Someone');
 
@@ -704,6 +741,42 @@
     catch (e) { S.comments.delete(ref.id); renderTools(); const t2 = $('#c-' + id); if (t2) t2.value = text; writeFailed(e); }
   }
 
+  // ---------- feedback ----------
+  const fbName = f => (f.name || '').trim() || S.names[f.user_id] || 'Someone';
+  function renderFeedback() {
+    const mine = S.me.id && S.feedback.get(S.me.id);
+    const nameEl = $('#fbName');
+    if (!S.fbLoaded && S.me.id && S.connected) {
+      S.fbLoaded = true;
+      if (mine) { $('#fbPos').value = mine.positives || ''; $('#fbNeg').value = mine.negatives || ''; nameEl.value = fbName(mine); }
+    }
+    if (!nameEl.value && document.activeElement !== nameEl && S.names[S.me.id]) nameEl.value = S.names[S.me.id];
+    $('#fbSubmit').textContent = mine ? 'Update my feedback' : 'Submit feedback';
+    const ro = S.canWrite === false || !db;
+    ['#fbName', '#fbPos', '#fbNeg', '#fbSubmit'].forEach(sel => { $(sel).disabled = ro; });
+    const list = $('#fbList'); list.textContent = '';
+    const items = [...S.feedback.values()].sort((a, b) => (a.ts || '').localeCompare(b.ts || ''));
+    list.append(h('p', { class: 'fb-count', text: items.length ? `${items.length} ${items.length === 1 ? 'person has' : 'people have'} weighed in.` : 'No feedback yet.' }));
+    for (const f of items) list.append(h('div', { class: 'fb-item' },
+      h('div', {}, h('div', { class: 'who', text: fbName(f) }), h('div', { class: 'when', text: fmtTime(f.ts) })),
+      h('div', { class: 'pos' }, h('h4', { text: 'Positives' }), h('p', { text: f.positives || '' })),
+      h('div', { class: 'neg' }, h('h4', { text: 'Negatives' }), h('p', { text: f.negatives || '' }))));
+  }
+  $('#fbForm').addEventListener('submit', async e => {
+    e.preventDefault();
+    if (!db || !S.me.id) return toast('Feedback is not available in this view.');
+    const typed = $('#fbName').value.trim(), pos = $('#fbPos').value.trim(), neg = $('#fbNeg').value.trim();
+    if (!pos && !neg) return toast('Add a positive or a negative first.');
+    if (!typed && !S.names[S.me.id]) { $('#fbName').focus(); return toast('Add your name.'); }
+    // Keep only a name the person typed themselves; otherwise their account name is shown.
+    const doc = { user_id: S.me.id, name: typed && typed !== S.names[S.me.id] ? typed : '', positives: pos, negatives: neg, ts: new Date().toISOString() };
+    const prev = S.feedback.get(S.me.id);
+    S.feedback.set(S.me.id, doc); renderFeedback();
+    $('#fbStatus').textContent = 'Saving';
+    try { await db.doc('feedback/' + S.me.id).set(doc); $('#fbStatus').textContent = 'Saved. Thanks.'; }
+    catch (err) { prev ? S.feedback.set(S.me.id, prev) : S.feedback.delete(S.me.id); renderFeedback(); $('#fbStatus').textContent = ''; writeFailed(err); }
+  });
+
   // ---------- export ----------
   async function exportNotes() {
     await resolveNames();
@@ -730,6 +803,8 @@
       const cs = commentsFor(t.id);
       if (cs.length) { L.push('Discussion:', ''); for (const m of cs) L.push(`- ${nameOf(m.user_id, m.anon_name || 'Guest')}: ${m.text.replace(/\n+/g, ' ')}`); L.push(''); }
     }
+    const fbs = [...S.feedback.values()].sort((a, b) => (a.ts || '').localeCompare(b.ts || ''));
+    if (fbs.length) { L.push('## Feedback', ''); for (const f of fbs) { L.push(`### ${fbName(f)}`, '', `**Positives.** ${f.positives || ''}`, '', `**Negatives.** ${f.negatives || ''}`, ''); } }
     const md = L.join('\n') + '\n', filename = `1500-gateway-hot-wash-notes-${new Date().toISOString().slice(0, 10)}.md`;
     if (downloads) {
       try { await downloads.save({ filename, data: md }); toast('Notes saved'); return; }
@@ -753,11 +828,11 @@
       if (document.activeElement?.id !== 'what') renderDetail();
       renderChart();
     }
-    renderTools();
+    renderTools(); renderFeedback();
   }
 
   // Scroll-linked segmented control
-  const secs = ['ran', 'scored', 'next'];
+  const secs = ['ran', 'scored', 'next', 'feedback'];
   const io = new IntersectionObserver(es => {
     for (const e of es) if (e.isIntersecting) document.querySelectorAll('#seg a').forEach(a => a.setAttribute('aria-current', String(a.dataset.sec === e.target.id)));
   }, { rootMargin: '-45% 0px -50% 0px' });
@@ -782,7 +857,7 @@
     db.doc('boards/main').onSnapshot(s => { if (s.exists) S.board = s.data(); live(); }, lost);
     db.doc('survey/gateway1500').onSnapshot(s => { if (s.exists) S.survey = s.data(); live(); }, lost);
     const sub = (coll, map) => db.collection(coll).onSnapshot(snap => { map.clear(); for (const d of snap.docs) map.set(d.id, d.data()); live(); }, lost);
-    sub('tools', S.tools); sub('votes', S.votes); sub('comments', S.comments); sub('components', S.comps);
+    sub('tools', S.tools); sub('votes', S.votes); sub('comments', S.comments); sub('components', S.comps); sub('feedback', S.feedback);
   })();
 })();
 </script>
